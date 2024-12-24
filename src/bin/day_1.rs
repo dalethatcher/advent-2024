@@ -60,7 +60,10 @@ mod tests {
 
     #[test]
     fn test_solve_part_1() {
-        assert_eq!(11, solve_part_1(&vec![3, 4, 2, 1, 3, 3], &vec![4, 3, 5, 3, 9, 3]));
+        assert_eq!(
+            11,
+            solve_part_1(&vec![3, 4, 2, 1, 3, 3], &vec![4, 3, 5, 3, 9, 3])
+        );
     }
 
     #[test]
@@ -74,6 +77,9 @@ mod tests {
 
     #[test]
     fn test_solve_part_2() {
-        assert_eq!(31, crate::solve_part_2(&vec![3, 4, 2, 1, 3, 3], &vec![4, 3, 5, 3, 9, 3]));
+        assert_eq!(
+            31,
+            crate::solve_part_2(&vec![3, 4, 2, 1, 3, 3], &vec![4, 3, 5, 3, 9, 3])
+        );
     }
 }
