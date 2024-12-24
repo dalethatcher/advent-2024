@@ -6,6 +6,7 @@ version = 4
 name = "advent_2024"
 version = "0.1.0"
 dependencies = [
+ "regex",
  "rstest",
 ]
 
