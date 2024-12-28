@@ -4,5 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+maplit = "1.0.2"
 regex = "1.11.1"
 rstest = "0.23.0"
