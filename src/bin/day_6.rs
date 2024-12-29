@@ -69,7 +69,10 @@ fn parse_input(input: &str) -> (Vec<Vec<Content>>, Location) {
 //     }
 // }
 
-fn visited_locations(map: &Vec<Vec<Content>>, start_location: &Location) -> (HashSet<Location>, bool) {
+fn visited_locations(
+    map: &Vec<Vec<Content>>,
+    start_location: &Location,
+) -> (HashSet<Location>, bool) {
     let mut location: Location = start_location.clone();
     let mut direction = Direction::North;
     let row_len = map.len() as i32;
@@ -77,7 +80,7 @@ fn visited_locations(map: &Vec<Vec<Content>>, start_location: &Location) -> (Has
     let mut visited = hashmap![location.clone() => hashset![direction.clone()]];
 
     loop {
-        let (row, column):(i32, i32) = match direction {
+        let (row, column): (i32, i32) = match direction {
             Direction::North => (location.row as i32 - 1, location.column as i32),
             Direction::East => (location.row as i32, location.column as i32 + 1),
             Direction::South => (location.row as i32 + 1, location.column as i32),
@@ -94,13 +97,12 @@ fn visited_locations(map: &Vec<Vec<Content>>, start_location: &Location) -> (Has
             Content::Empty => {
                 location.row = row;
                 location.column = column;
-                
+
                 match visited.get_mut(&location) {
                     Some(directions) => {
                         if directions.contains(&direction) {
                             return (visited.keys().cloned().collect(), true);
-                        }
-                        else {
+                        } else {
                             directions.insert(direction.clone());
                         }
                     }
@@ -127,14 +129,14 @@ fn solve_part_1(map: &Vec<Vec<Content>>, start_location: &Location) -> usize {
 
 fn is_loop(map: &Vec<Vec<Content>>, start_location: &Location) -> bool {
     let (_, looped) = visited_locations(map, start_location);
-    
+
     looped
 }
 
 fn solve_part_2(map: &Vec<Vec<Content>>, location: &Location) -> usize {
     let (obstacle_candidates, _) = visited_locations(map, location);
     let mut result = 0;
-    
+
     for obstacle in obstacle_candidates {
         let mut map_copy = map.clone();
         map_copy[obstacle.row][obstacle.column] = Content::Object;
@@ -142,7 +144,7 @@ fn solve_part_2(map: &Vec<Vec<Content>>, location: &Location) -> usize {
             result += 1;
         }
     }
-    
+
     result
 }
 
