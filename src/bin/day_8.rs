@@ -65,7 +65,11 @@ fn parse_input(input: &str) -> Map {
     }
 }
 
-fn compute_part_1_locations(size: &Vector, antenna_1: &Vector, antenna_2: &Vector) -> HashSet<Vector> {
+fn compute_part_1_locations(
+    size: &Vector,
+    antenna_1: &Vector,
+    antenna_2: &Vector,
+) -> HashSet<Vector> {
     let difference = antenna_2 - antenna_1;
 
     [antenna_1 - &difference, antenna_2 + &difference]
@@ -88,8 +92,12 @@ fn solve_part_1(map: &Map) -> usize {
     locations.len()
 }
 
-fn compute_part_2_locations(size: &Vector, antenna_1: &Vector, antenna_2: &Vector) -> HashSet<Vector> {
-    let mut result = hashset! [];
+fn compute_part_2_locations(
+    size: &Vector,
+    antenna_1: &Vector,
+    antenna_2: &Vector,
+) -> HashSet<Vector> {
+    let mut result = hashset![];
     let difference = antenna_2 - antenna_1;
 
     let mut l = antenna_1.clone();
@@ -106,7 +114,6 @@ fn compute_part_2_locations(size: &Vector, antenna_1: &Vector, antenna_2: &Vecto
 
     result
 }
-
 
 fn solve_part_2(map: &Map) -> usize {
     let mut locations = hashset![];
@@ -136,7 +143,6 @@ mod tests {
     use maplit::{hashmap, hashset};
     use rstest::rstest;
     use std::collections::HashSet;
-    use std::ops::{Add, Sub};
 
     const EXAMPLE_INPUT: &str = "............\n\
         ........0...\n\
