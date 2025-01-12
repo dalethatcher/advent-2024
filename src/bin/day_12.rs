@@ -267,7 +267,7 @@ fn main() {
     let map = parse_map(include_str!("day_12_input.txt"));
 
     println!("part 1: {}", solve_part_1(&map));
-    println!("part 1: {}", solve_part_2(&map));
+    println!("part 2: {}", solve_part_2(&map));
 }
 
 #[cfg(test)]
