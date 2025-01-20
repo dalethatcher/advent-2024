@@ -69,6 +69,7 @@ impl Edge {
         }
     }
 
+    #[cfg(test)]
     fn new(from_x: usize, from_y: usize, direction: Direction) -> Self {
         Edge {
             from: Location {
